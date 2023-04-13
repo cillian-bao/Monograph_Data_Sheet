@@ -37,7 +37,6 @@ CREATE TABLE `departments` (
   `manager_id` int(6) DEFAULT NULL,
   `location_id` int(4) DEFAULT NULL,
   PRIMARY KEY (`department_id`),
-  UNIQUE KEY `dept_id_pk` (`department_id`),
   KEY `dept_loc_fk` (`location_id`),
   KEY `dept_mgr_fk` (`manager_id`),
   CONSTRAINT `dept_loc_fk` FOREIGN KEY (`location_id`) REFERENCES `locations` (`location_id`),
@@ -65,8 +64,6 @@ CREATE TABLE `employees` (
   `manager_id` int(6) DEFAULT NULL,
   `department_id` int(4) DEFAULT NULL,
   PRIMARY KEY (`employee_id`),
-  UNIQUE KEY `emp_email_uk` (`email`),
-  UNIQUE KEY `emp_emp_id_pk` (`employee_id`),
   KEY `emp_dept_fk` (`department_id`),
   KEY `emp_job_fk` (`job_id`),
   KEY `emp_manager_fk` (`manager_id`),
@@ -104,7 +101,6 @@ CREATE TABLE `job_history` (
   `job_id` varchar(10) NOT NULL,
   `department_id` int(4) DEFAULT NULL,
   PRIMARY KEY (`employee_id`,`start_date`),
-  UNIQUE KEY `jhist_emp_id_st_date_pk` (`employee_id`,`start_date`),
   KEY `jhist_job_fk` (`job_id`),
   KEY `jhist_dept_fk` (`department_id`),
   CONSTRAINT `jhist_dept_fk` FOREIGN KEY (`department_id`) REFERENCES `departments` (`department_id`),
@@ -126,7 +122,6 @@ CREATE TABLE `jobs` (
   `min_salary` int(6) DEFAULT NULL,
   `max_salary` int(6) DEFAULT NULL,
   PRIMARY KEY (`job_id`),
-  UNIQUE KEY `job_id_pk` (`job_id`)
 ) ENGINE=monograph DEFAULT CHARSET=utf8;
 
 /*Data for the table `jobs` */
@@ -145,7 +140,6 @@ CREATE TABLE `locations` (
   `state_province` varchar(25) DEFAULT NULL,
   `country_id` char(2) DEFAULT NULL,
   PRIMARY KEY (`location_id`),
-  UNIQUE KEY `loc_id_pk` (`location_id`),
   KEY `loc_c_id_fk` (`country_id`),
   CONSTRAINT `loc_c_id_fk` FOREIGN KEY (`country_id`) REFERENCES `countries` (`country_id`)
 ) ENGINE=monograph DEFAULT CHARSET=utf8;
@@ -175,7 +169,6 @@ CREATE TABLE `regions` (
   `region_id` int(11) NOT NULL,
   `region_name` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`region_id`),
-  UNIQUE KEY `reg_id_pk` (`region_id`)
 ) ENGINE=monograph DEFAULT CHARSET=utf8;
 
 /*Data for the table `regions` */
