@@ -12,7 +12,7 @@ USE `mono`;
 
 /*Table structure for table `countries` */
 
-DROP TABLE IF EXISTS `countries`;
+DROP TABLE IF EXISTS `我改了`;
 
 CREATE TABLE `countries` (
   `country_id` char(2) NOT NULL,
