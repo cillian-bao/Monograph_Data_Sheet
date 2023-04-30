@@ -14,6 +14,7 @@ USE `mono`;
 
 DROP TABLE IF EXISTS `山本，我日你先人`;
 
+
 CREATE TABLE `countries` (
   `country_id` char(2) NOT NULL,
   `country_name` varchar(40) DEFAULT NULL,
