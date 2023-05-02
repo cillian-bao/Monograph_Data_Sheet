@@ -22,6 +22,7 @@ CREATE TABLE `countries` (
   PRIMARY KEY (`country_id`),
   KEY `countr_reg_fk` (`region_id`),
   CONSTRAINT `countr_reg_fk` FOREIGN KEY (`region_id`) REFERENCES `regions` (`region_id`)
+  第二次日你先人，测试git push -f
 ) ENGINE=monograph DEFAULT CHARSET=utf8;
 
 /*Data for the table `countries` */
